@@ -13,9 +13,18 @@ class ManufacturersController < ApplicationController
   end
 
   def create
-    @manufacturer = Manufacturer.new
-    @manufacturer.name = params[:manufacturer][:name]
-    @manufacturer.save
-    redirect_to @manufacturer
+    @manufacturer = Manufacturer.new(manufacturer_params)
+    if @manufacturer.save
+      flash[:notice] = 'Fabricante criada com sucesso'
+      redirect_to @manufacturer
+    else
+      render :new
+    end
+  end
+
+  private
+
+  def manufacturer_params
+    params.require(:manufacturer).permit(:name)
   end
 end
