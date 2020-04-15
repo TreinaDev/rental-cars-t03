@@ -22,6 +22,9 @@ class ManufacturersController < ApplicationController
     end
   end
 
+  def edit
+  end
+
   private
 
   def manufacturer_params
