@@ -1,0 +1,9 @@
+<h1>Categoria <%= @car_category.name %></h1>
+<dl>
+  <dt>Diária:</dt>
+  <dd><%= number_to_currency @car_category.daily_rate %></dd>
+  <dt>Seguro do Carro:</dt>
+  <dd><%= number_to_currency @car_category.car_insurance %></dd>
+  <dt>Seguro para Terceiros:</dt>
+  <dd><%= number_to_currency @car_category.third_part_insurance %></dd>
+</dl>
