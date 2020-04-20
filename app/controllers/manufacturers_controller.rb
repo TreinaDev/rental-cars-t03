@@ -12,6 +12,7 @@ class ManufacturersController < ApplicationController
     @manufacturer = Manufacturer.new
   end
 
+  # POST
   def create
     @manufacturer = Manufacturer.new(manufacturer_params)
     if @manufacturer.save
@@ -23,6 +24,17 @@ class ManufacturersController < ApplicationController
   end
 
   def edit
+    @manufacturer = Manufacturer.find(params[:id])
+  end
+
+  # PATCH ou PUT
+  def update
+    @manufacturer = Manufacturer.find(params[:id])
+    if @manufacturer.update(manufacturer_params)
+      redirect_to @manufacturer
+    else
+      render :edit
+    end
   end
 
   private

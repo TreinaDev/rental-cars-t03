@@ -1,0 +1,11 @@
+<h1>Editar <%= @manufacturer.name %></h1>
+
+<% @manufacturer.errors.full_messages.each do |message| %>
+  <p><%= message %></p>
+<% end %>
+
+<%= form_with(model: @manufacturer) do |f| %>
+  <%= f.label :name, 'Nome' %>
+  <%= f.text_field :name %>
+  <%= f.submit 'Enviar' %>
+<% end %>
