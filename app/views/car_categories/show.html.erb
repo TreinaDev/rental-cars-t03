@@ -10,4 +10,10 @@
     <dt>Seguro para Terceiros:</dt>
     <dd><%= number_to_currency @car_category.third_part_insurance %></dd>
   </dl>
+
+  <h3>Modelos de carro</h3>
+  <% @car_category.car_models.each do |car_model| %>
+    <%= link_to car_model.name, car_model %>
+  <% end %>
+  <%= link_to 'Voltar', car_categories_path %>
 </section>
