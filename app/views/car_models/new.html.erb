@@ -1,28 +1,36 @@
 <h1>Novo modelo de carro</h1>
 
+<% if @car_model.errors.any? %>
+  <ul>
+    <% @car_model.errors.full_messages.each do |message| %> 
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_with model: @car_model, local: true do |f| %>
   <div>
-    <strong><%= f.label :name, 'Nome' %></strong>
+    <strong><%= f.label :name %></strong>
     <%= f.text_field :name %>
   </div>
   <div>
-    <strong><%= f.label :year, 'Ano' %></strong>
+    <strong><%= f.label :year %></strong>
     <%= f.number_field :year, value: Time.zone.now.year %>
   </div>
   <div>
-    <strong><%= f.label :motorization, 'Motor' %></strong>
+    <strong><%= f.label :motorization %></strong>
     <%= f.text_field :motorization %>
   </div>
   <div>
-    <strong><%= f.label :fuel_type, 'Combustível' %></strong>
+    <strong><%= f.label :fuel_type %></strong>
     <%= f.text_field :fuel_type %>
   </div>
   <div>
-    <strong><%= f.label :manufacturer_id, 'Fabricante' %></strong>
+    <strong><%= f.label :manufacturer_id %></strong>
     <%= f.collection_select :manufacturer_id, @manufacturers, :id, :name %>
   </div>
   <div>
-    <strong><%= f.label :car_category_id, 'Categoria de Carro' %></strong>
+    <strong><%= f.label :car_category_id %></strong>
     <%= f.collection_select :car_category_id, @car_categories, :id, :name %>
   </div>
   <div>
