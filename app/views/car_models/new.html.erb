@@ -1,0 +1,31 @@
+<h1>Novo modelo de carro</h1>
+
+<%= form_with model: @car_model, local: true do |f| %>
+  <div>
+    <strong><%= f.label :name, 'Nome' %></strong>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <strong><%= f.label :year, 'Ano' %></strong>
+    <%= f.number_field :year, value: Time.zone.now.year %>
+  </div>
+  <div>
+    <strong><%= f.label :motorization, 'Motor' %></strong>
+    <%= f.text_field :motorization %>
+  </div>
+  <div>
+    <strong><%= f.label :fuel_type, 'Combustível' %></strong>
+    <%= f.text_field :fuel_type %>
+  </div>
+  <div>
+    <strong><%= f.label :manufacturer_id, 'Fabricante' %></strong>
+    <%= f.collection_select :manufacturer_id, @manufacturers, :id, :name %>
+  </div>
+  <div>
+    <strong><%= f.label :car_category_id, 'Categoria de Carro' %></strong>
+    <%= f.collection_select :car_category_id, @car_categories, :id, :name %>
+  </div>
+  <div>
+    <%= f.submit 'Enviar' %>
+  </div>
+<% end %>

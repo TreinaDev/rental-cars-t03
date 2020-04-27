@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   # get '/', to: 'home#index'
   resources :car_categories, only: [:index, :show]
   resources :manufacturers
-  resources :car_models, only: [:index, :show]
+  resources :car_models, only: [:index, :show, :new, :create]
 end
