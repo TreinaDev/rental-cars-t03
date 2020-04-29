@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root 'home#index' #> RAIZ ou seja ROOT
   # get '/', to: 'home#index'
   resources :car_categories, only: [:index, :show]

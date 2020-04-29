@@ -23,4 +23,7 @@ feature 'Admin register rental' do
     expect(page).to have_content("Cliente: #{customer.name}")
     expect(page).to have_content("Categoria: #{car_category.name}")
   end
+
+  xscenario 'and must fill in all fields' do
+  end
 end
