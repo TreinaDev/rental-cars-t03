@@ -1,0 +1,27 @@
+<h1>Clientes</h1>
+
+<%= form_with url: search_customers_path, method: :get do |f| %>
+  <%= f.label :q, 'Busca' %>
+  <%= f.search_field :q %>
+  <%= f.submit 'Buscar' %>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Email</th>
+      <th>Documento</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @customers.each do |customer| %>
+      <tr id="customer-<%= customer.id %>">
+        <td><%= customer.name %></td>
+        <td><%= customer.email %></td>
+        <td><%= customer.document %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

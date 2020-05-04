@@ -8,4 +8,7 @@ Rails.application.routes.draw do
   resources :rentals, only: [:index, :new, :create] do
     get 'search', on: :collection
   end
+  resources :customers, only: [:index] do
+    get 'search', on: :collection
+  end
 end
