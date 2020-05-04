@@ -2,8 +2,16 @@
 
 <%= link_to 'Registrar nova locação', new_rental_path %>
 
+<%= form_with url: search_rentals_path, method: :get do |f| %>
+  <%= f.label :q, 'Código' %>
+  <%= f.text_field :q %>
+  <%= f.submit 'Buscar' %>
+<% end %>
+
 <% @rentals.each do |rental| %>
   <dl>
+    <dt>Código</dt>
+    <dd><%= rental.code %></dd>
     <dt>Data de início:</dt>
     <dd><%= l rental.start_date %></dd>
     <dt>Data de término:</dt>
