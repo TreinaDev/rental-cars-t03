@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   resources :customers, only: [:index] do
     get 'search', on: :collection
   end
+  resources :subsidiaries, only: [:index, :show, :new, :create, :edit, :update]
 end

@@ -1,0 +1,9 @@
+<h1><%= Subsidiary.model_name.human %> <%= @subsidiary.name %></h1>
+<dl>
+  <dt><%= Subsidiary.human_attribute_name(:address) %>:</dt>
+  <dd><%= @subsidiary.address %></dd>
+  <dt><%= Subsidiary.human_attribute_name(:cnpj) %>:</dt>
+  <dd><%= @subsidiary.cnpj %></dd>
+</dl>
+
+<%= link_to 'Atualizar filial', edit_subsidiary_path(@subsidiary) %>

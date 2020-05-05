@@ -1,0 +1,25 @@
+<% if subsidiary.errors.any? %>
+  <div id="errors">
+    <p>Não foi possível cadastrar a filial. Verifique os erros abaixo:</p>
+    <ul>
+      <% subsidiary.errors.full_messages.each do |msg|%>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<%= form_with(model: subsidiary, local: true) do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+  </div>
+  <div>
+    <%= f.label :cnpj %>
+    <%= f.text_field :cnpj %>
+  </div>
+  <%= f.submit %>
+<% end %>

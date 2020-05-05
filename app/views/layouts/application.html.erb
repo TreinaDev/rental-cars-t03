@@ -13,6 +13,7 @@
     <nav>
       <% if user_signed_in? %>
         <%= link_to 'Locações', rentals_path %>
+        <%= link_to 'Filiais', subsidiaries_path %>
         <%= link_to 'Sair', destroy_user_session_path, method: :delete %>
       <% else %>
         <%= link_to 'Entrar', new_user_session_path %>
