@@ -11,6 +11,7 @@
     <dt>Categoria:</dt>
     <dd><%= @rental.car_category.name %></dd>
   </dl>
+  <%= link_to 'Iniciar', new_rental_car_rental_path(@rental) %>
 <% else %>
   <p><%= "Nenhum resultado encontrado para: #{@q}" %></p>
 <% end %>
