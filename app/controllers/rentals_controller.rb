@@ -5,6 +5,10 @@ class RentalsController < ApplicationController
     @rentals = Rental.all
   end
 
+  def show
+    @rental = Rental.find(params[:id])
+  end
+
   def new
     @rental = Rental.new
     @customers = Customer.all

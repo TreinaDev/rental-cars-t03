@@ -12,6 +12,7 @@
   <body>
     <nav>
       <% if user_signed_in? %>
+        <%= current.admin? %>
         <%= link_to 'Locações', rentals_path %>
         <%= link_to 'Filiais', subsidiaries_path %>
         <%= link_to 'Sair', destroy_user_session_path, method: :delete %>

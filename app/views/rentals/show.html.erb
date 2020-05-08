@@ -1,0 +1,8 @@
+<%= render @rental %>
+
+<% if @rental.car_rental.present? %>
+  <p>Data de início da locação: <%= l @rental.car_rental.created_at, format: :long %></p>
+  <p>Carro: <%= @rental.car_rental.car.license_plate %></p>
+  <p>Cliente: <%= @rental.customer.email %></p>
+  <p>Locação iniciada por: <%= @rental.car_rental.user.email %></p>
+<% end %>
