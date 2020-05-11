@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     get 'search', on: :collection
     resources :car_rentals, only: [:new, :create]
   end
-  resources :customers, only: [:index] do
+  resources :customers, only: %i[index show] do
     get 'search', on: :collection
   end
   resources :subsidiaries, only: [:index, :show, :new, :create, :edit, :update]

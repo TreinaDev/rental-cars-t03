@@ -1,0 +1,27 @@
+
+<h3><%= Rental.model_name.human(count: 2) %></h3>
+
+<table>
+  <tr>
+    <th><%= Rental.human_attribute_name(:code) %></th>
+    <th><%= Rental.human_attribute_name(:start_date) %></th>
+    <th><%= Rental.human_attribute_name(:end_date) %></th>
+    <th><%= Rental.human_attribute_name(:car_category) %></th>
+    <th><%= Rental.human_attribute_name(:status) %></th>
+    <th>Ações</th>
+  </tr>
+  <% @customer.rentals.each do |rental| %>
+    <tr id="rental-<%= rental.code %>">
+      <td><%= rental.code %></td>
+      <td><%= l rental.start_date %></td>
+      <td><%= l rental.end_date %></td>
+      <td><%= rental.car_category.name %></td>
+      <td><%= Rental.human_attribute_name("status.#{rental.status}") %></td>
+      <td>
+        <% if rental.scheduled? %>
+          <%= link_to 'Iniciar', new_rental_car_rental_path(rental) %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>

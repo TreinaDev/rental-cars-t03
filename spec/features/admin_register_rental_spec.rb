@@ -18,6 +18,7 @@ feature 'Admin register rental' do
     fill_in 'Data de término', with: '29/04/2030'
     select customer.name, from: 'Cliente'
     select car_category.name, from: 'Categoria'
+    expect(RentalsMailer).to receive(:scheduled).and_call_original
     click_on 'Enviar'
 
     expect(page).to have_content('Data de início: 27/04/2030')

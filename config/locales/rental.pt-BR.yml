@@ -2,7 +2,9 @@
 pt-BR:
   activerecord:
     models:
-      rental: Locação
+      rental:
+        one: Locação
+        other: Locações
     attributes:
       rental/status:
         scheduled: Agendada
