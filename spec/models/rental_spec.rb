@@ -1,16 +1,20 @@
 require 'rails_helper'
 
 RSpec.describe Rental, type: :model do
-  it 'should generate a code on create' do
-    customer = Customer.create!(name: 'Fulano Sicrano', 
-                                email: 'test@test.com.br',
-                                document: '100.954.020-39')
-    car_category = CarCategory.create!(name: 'A')
-    rental = Rental.new(start_date: 1.day.from_now, end_date: 2.days.from_now,
-                        customer: customer, car_category: car_category)
+  context '#code' do
+    let(:rental) { build(:rental) }
 
-    rental.save
+    it 'should generate a code on create' do
+      rental.save
+      expect(rental.code).to_not be_blank
+    end
 
-    expect(rental.code).to_not be_blank
+    it 'generate another if exists' do
+      another_rental = create(:rental)
+      allow(SecureRandom).to receive(:alphanumeric).and_return(another_rental.code,
+                                                               'ABC123')
+      rental.save
+      expect(rental.code).not_to eq(another_rental.code)
+    end
   end
 end

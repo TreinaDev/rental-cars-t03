@@ -11,6 +11,9 @@ class Rental < ApplicationRecord
   private
 
   def generate_code
-    self.code = SecureRandom.alphanumeric(6).upcase
+    self.code = loop do
+      code = SecureRandom.alphanumeric(6).upcase
+      break code unless Rental.exists?(code: code)
+    end
   end
 end

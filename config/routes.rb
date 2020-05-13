@@ -13,4 +13,10 @@ Rails.application.routes.draw do
     get 'search', on: :collection
   end
   resources :subsidiaries, only: [:index, :show, :new, :create, :edit, :update]
+
+  namespace :api do
+    namespace :v1 do
+      resources :cars, only: %i[index]
+    end
+  end
 end
