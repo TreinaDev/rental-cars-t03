@@ -5,12 +5,12 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <nav>
+    <nav class="navbar navbar-light bg-light">
       <% if user_signed_in? %>
         <%= link_to 'Locações', rentals_path %>
         <%= link_to 'Filiais', subsidiaries_path %>
@@ -19,8 +19,10 @@
         <%= link_to 'Entrar', new_user_session_path %>
       <% end %>
     </nav>
-    <%= flash[:notice] %>
-    <%= flash[:alert] %>
-    <%= yield %>
+    <div class="container">
+      <%= flash[:notice] %>
+      <%= flash[:alert] %>
+      <%= yield %>
+    </div>
   </body>
 </html>

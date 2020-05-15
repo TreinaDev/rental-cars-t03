@@ -1,5 +1,6 @@
 class RentalsController < ApplicationController
   before_action :authenticate_user!, only: [:index, :new, :create]
+  before_action :authorize_admin!
 
   def index
     @rentals = Rental.all
@@ -33,5 +34,13 @@ class RentalsController < ApplicationController
     #   flash.now[:alert] = "Nenhum resultado encontrado para: #{@q}"
     #   render :index
     # end
+  end
+
+  private
+
+  def authorize_admin!
+    return if current_user.admin?
+
+    redirect_to root_path, notice: 'Ação não autorizada'
   end
 end
