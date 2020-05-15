@@ -39,3 +39,9 @@ Dockerfile
 docker-compose.yml
 coverage
 /config/master.key
+
+/tmp/*
+/tmp/pids/*
+!/tmp/.keep
+!/tmp/pids
+!/tmp/pids/.keep
